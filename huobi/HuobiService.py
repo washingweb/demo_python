@@ -6,6 +6,17 @@ import requests
 
 from huobi.Util import *
 
+ACCESS_KEY=""
+SECRET_KEY=""
+HTTPS_VERIFY=True
+
+def config(access_key, secret_key, verify):
+    global ACCESS_KEY
+    global SECRET_KEY
+    global HTTPS_VERIFY
+    ACCESS_KEY = access_key
+    SECRET_KEY = secret_key
+    HTTPS_VERIFY = verify
 
 '''
 获取账号详情
@@ -235,5 +246,3 @@ def sellMarket(coinType,amount,tradePassword,tradeid,method):
         return data
     else:
         return None
-
-
