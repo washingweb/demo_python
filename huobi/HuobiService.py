@@ -9,6 +9,7 @@ from huobi.Util import *
 ACCESS_KEY=""
 SECRET_KEY=""
 HTTPS_VERIFY=True
+TIMEOUT=5
 
 def config(access_key, secret_key, verify):
     global ACCESS_KEY
@@ -30,7 +31,7 @@ def getAccountInfo(method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -58,7 +59,7 @@ def buy(coinType,price,amount,tradePassword,tradeid,method):
         params['trade_id']=tradeid
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -86,7 +87,7 @@ def buyMarket(coinType,amount,tradePassword,tradeid,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -108,7 +109,7 @@ def cancelOrder(coinType,id,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -127,7 +128,7 @@ def getNewDealOrders(coinType,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -147,7 +148,7 @@ def getOrderIdByTradeId(coinType,tradeid,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -166,7 +167,7 @@ def getOrders(coinType,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -186,7 +187,7 @@ def getOrderInfo(coinType,id,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -213,7 +214,7 @@ def sell(coinType,price,amount,tradePassword,tradeid,method):
         params['trade_id']=tradeid
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
@@ -240,7 +241,7 @@ def sellMarket(coinType,amount,tradePassword,tradeid,method):
     del params['secret_key']
 
     payload = urllib.urlencode(params)
-    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY)
+    r = requests.post(HUOBI_SERVICE_API, params=payload, verify=HTTPS_VERIFY, timeout=TIMEOUT)
     if r.status_code == 200:
         data = r.json()
         return data
